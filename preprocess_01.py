@@ -34,17 +34,29 @@ del all_train['FinelineNumber']
 del all_train['Upc']
 del all_train['VisitNumber']
 
-# Escalamos variales ?
-scaler = preprocessing.StandardScaler()
-df_scaled = pd.DataFrame(scaler.fit_transform(all_train), columns=all_train.columns)
-df_scaled['is_train'] = all_train['is_train']
 
 #Dividimos
-train_scaled, test_scaled = df_scaled[df_scaled['is_train']==True], df_scaled[df_scaled['is_train']==False]
+#Datos sin escalar
 train, test = all_train[all_train['is_train']==True], all_train[all_train['is_train']==False]
 
 del train ['is_train']
 del test ['is_train']
+# Escalamos variales
+scaler = preprocessing.StandardScaler()
+df_scaled = pd.DataFrame(scaler.fit_transform(all_train), columns=all_train.columns)
+df_scaled['is_train'] = all_train['is_train']
+
+train_scaled, test_scaled = df_scaled[df_scaled['is_train']==True], df_scaled[df_scaled['is_train']==False]
+
+del train_scaled ['is_train']
+del test_scaled ['is_train']
+
+x_train_scaled = train_scaled[train_scaled.columns[1:]].values
+y_train_scaled = train_scaled[train_scaled.columns[0]].values
+x_test_scaled = test_scaled[test_scaled.columns[1:]].values
+y_test_scaled = test_scaled[test_scaled.columns[0]].values
+
+
 
 x_train = train[train.columns[1:]].values
 y_train = train[train.columns[0]].values
