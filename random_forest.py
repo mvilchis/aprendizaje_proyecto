@@ -1,5 +1,5 @@
 ###################### Import
-
+from sklearn.metrics import accuracy_score
 from sklearn.ensemble import (RandomForestClassifier, ExtraTreesClassifier, AdaBoostClassifier)
 from preprocess_01 import *
 ####################### RandomForest
