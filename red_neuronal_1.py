@@ -20,3 +20,4 @@ predictions =  model.predict(x_test_scaled)
 print "*"*30
 print  "%s" % (accuracy_score(y_test, predictions))
 print "*"*30
+#Accuracy del 28%

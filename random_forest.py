@@ -10,3 +10,4 @@ print "*"*30
 print "Accuracy de random forest"
 print(accuracy_score(y_test, predictions))
 print "*"*30
+#Acurracy del 35%
