@@ -52,7 +52,6 @@ std_scale = preprocessing.StandardScaler().fit(all_train[['DepartmentDescription
 df_scaled['DepartmentDescription'] = std_scale.transform(all_train[['DepartmentDescription']])
 
 
-del df_scaled['is_train']
 train_scaled, test_scaled = df_scaled[df_scaled['is_train']==True], df_scaled[df_scaled['is_train']==False]
 
 del train_scaled ['is_train']
