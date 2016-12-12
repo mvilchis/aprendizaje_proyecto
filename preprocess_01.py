@@ -44,8 +44,8 @@ del test ['is_train']
 # Escalamos variales
 scaler = preprocessing.StandardScaler()
 df_scaled = pd.DataFrame(scaler.fit_transform(all_train), columns=all_train.columns)
-df_scaled['is_train'] = all_train['is_train']
-
+del df_scaled['is_train']
+df_scaled =pd.concat([df_scaled, pd.DataFrame(all_train['is_train'])], axis=1)
 train_scaled, test_scaled = df_scaled[df_scaled['is_train']==True], df_scaled[df_scaled['is_train']==False]
 
 del train_scaled ['is_train']
