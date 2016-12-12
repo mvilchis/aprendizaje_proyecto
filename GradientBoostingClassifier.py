@@ -1,4 +1,3 @@
-__author__ = 'tim'
 from sklearn.ensemble import GradientBoostingClassifier
 
 model = GradientBoostingClassifier(verbose=1)
